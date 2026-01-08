@@ -5,7 +5,10 @@ WORKDIR /app
 RUN apt update && apt install -y git ffmpeg
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir \
+    fastapi \
+    uvicorn \
+    pydantic
 
 COPY . .
 
